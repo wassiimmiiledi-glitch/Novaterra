@@ -1,6 +1,4 @@
 # Netlify build configuration for Novaterra (Next.js 14 + Prisma + Supabase).
-# The @netlify/plugin-nextjs is auto-installed by Netlify when it detects a
-# Next.js project, so it doesn't need to be declared here.
 
 [build]
   # Generate Prisma client (Linux engine via binaryTargets) then build Next.
@@ -8,20 +6,24 @@
   publish   = ".next"
 
 [build.environment]
-  # Pin Node so Prisma + Next builds are reproducible.
-  NODE_VERSION = "20"
-  # Skip Husky / postinstall hooks that don't belong in CI.
-  HUSKY = "0"
-  # Ensure Prisma uses the binary it generates rather than re-downloading.
+  NODE_VERSION              = "20"
+  HUSKY                     = "0"
   PRISMA_HIDE_UPDATE_MESSAGE = "true"
+  # Tell Netlify to install dependencies even though node_modules may be
+  # present in the upload (safety net for the MCP zip-deploy path).
+  NPM_FLAGS                 = "--include=dev"
 
-# Long-cache the Next.js static asset bundle (immutable, hashed filenames).
+# Force-load the Next.js plugin so SSR + API routes become serverless
+# functions. (Netlify normally auto-installs this when it detects Next.js;
+# declaring it explicitly is the safety belt for non-Git deploy paths.)
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [[headers]]
   for = "/_next/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Small security baseline — safe defaults, can be tightened per page later.
 [[headers]]
   for = "/*"
   [headers.values]
