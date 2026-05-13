@@ -1,0 +1,55 @@
+generator client {
+  provider      = "prisma-client-js"
+  // Native = local dev (Windows/macOS). rhel-openssl-3.0.x = AWS Lambda /
+  // Netlify Functions runtime. linux-musl-openssl-3.0.x covers Alpine images.
+  binaryTargets = ["native", "rhel-openssl-3.0.x", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // Direct (non-pooled) connection used for prisma migrate / db push.
+  // Runtime queries go through the pooled DATABASE_URL above.
+  directUrl = env("DIRECT_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+
+  @@map("admins")
+}
+
+model MenuItem {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  price       Float
+  category    String
+  image       String?
+  featured    Boolean  @default(false)
+  available   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("menu_items")
+}
+
+model Reservation {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  date      DateTime
+  time      String
+  guests    Int
+  notes     String?
+  // PENDING | CONFIRMED | CANCELLED
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+
+  @@map("reservations")
+}
