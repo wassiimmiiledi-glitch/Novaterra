@@ -24,7 +24,7 @@ export default function ContactPage() {
         <div className="container-x grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5 space-y-10">
             <Info icon={<MapPin />} label="Visit" lines={["Nouvelle Médina", "Tunis, Tunisia"]} />
-            <Info icon={<Phone />} label="Call" lines={["+216 71 000 000"]} />
+            <Info icon={<Phone />} label="Call / WhatsApp" lines={["+216 29 811 559"]} />
             <Info icon={<Mail />} label="Write" lines={["hello@novaterra.cafe", "events@novaterra.cafe"]} />
             <Info
               icon={<Clock />}
@@ -34,7 +34,7 @@ export default function ContactPage() {
             <div>
               <p className="eyebrow mb-4">Follow</p>
               <div className="flex gap-3">
-                <a href="https://instagram.com" className="w-11 h-11 rounded-full border border-ink/15 flex items-center justify-center hover:bg-olive-700 hover:text-cream-50 hover:border-olive-700 transition-colors" aria-label="Instagram"><Instagram className="w-4 h-4" /></a>
+                <a href="https://instagram.com/novaterra_coffee" target="_blank" rel="noreferrer" className="w-11 h-11 rounded-full border border-ink/15 flex items-center justify-center hover:bg-olive-700 hover:text-cream-50 hover:border-olive-700 transition-colors" aria-label="Instagram @novaterra_coffee"><Instagram className="w-4 h-4" /></a>
                 <a href="https://facebook.com" className="w-11 h-11 rounded-full border border-ink/15 flex items-center justify-center hover:bg-olive-700 hover:text-cream-50 hover:border-olive-700 transition-colors" aria-label="Facebook"><Facebook className="w-4 h-4" /></a>
               </div>
             </div>

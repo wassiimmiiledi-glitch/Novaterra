@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/utils";
 type Item = {
   id: string;
   name: string;
-  description: string;
+  description: string | null;
   price: number;
   category: string;
   image: string | null;
@@ -36,7 +36,7 @@ export default function MenuManager({ initial }: { initial: Item[] }) {
   const filtered = useMemo(
     () =>
       items.filter((i) =>
-        (i.name + i.category + i.description).toLowerCase().includes(query.toLowerCase())
+        (i.name + i.category + (i.description ?? "")).toLowerCase().includes(query.toLowerCase())
       ),
     [items, query]
   );
@@ -117,7 +117,9 @@ export default function MenuManager({ initial }: { initial: Item[] }) {
             <div className="p-5 flex-1 flex flex-col">
               <p className="text-[10px] tracking-[0.3em] uppercase text-olive-600">{item.category}</p>
               <h3 className="font-display text-xl mt-1.5">{item.name}</h3>
-              <p className="mt-2 text-sm text-ink/65 line-clamp-2">{item.description}</p>
+              <p className="mt-2 text-sm text-ink/65 line-clamp-2 italic">
+                {item.description || <span className="text-ink/35 not-italic">No description</span>}
+              </p>
               <div className="mt-auto pt-4 flex items-center justify-between">
                 <span className="font-display text-lg text-olive-700">{formatPrice(item.price)}</span>
                 <div className="flex gap-1">
@@ -187,6 +189,7 @@ function Editor({
 }) {
   const [form, setForm] = useState({
     ...initial,
+    description: initial.description ?? "",
     image: initial.image ?? ""
   });
   const [saving, setSaving] = useState(false);
@@ -245,13 +248,15 @@ function Editor({
           </div>
           <Field label="Image URL" value={form.image} onChange={(v) => setForm({ ...form, image: v })} placeholder="https://…" />
           <label className="block">
-            <span className="block text-[11px] tracking-[0.3em] uppercase text-ink/60 mb-3">Description</span>
+            <span className="block text-[11px] tracking-[0.3em] uppercase text-ink/60 mb-3">
+              Description <span className="opacity-50 normal-case tracking-normal italic">— optional, used for ingredients or package contents</span>
+            </span>
             <textarea
               rows={4}
-              value={form.description}
+              value={form.description ?? ""}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
-              className="w-full bg-transparent border border-ink/15 rounded-sm focus:border-olive-700 outline-none p-4 text-[15px] resize-none"
-              required
+              placeholder="Banane, kiwi, ananas — leave empty for simple items"
+              className="w-full bg-transparent border border-ink/15 rounded-sm focus:border-olive-700 outline-none p-4 text-[15px] resize-none placeholder:text-ink/35"
             />
           </label>
 

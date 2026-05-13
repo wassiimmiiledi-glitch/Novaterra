@@ -31,8 +31,11 @@ export default function Logo({
         <circle cx="14" cy="20" r="1.4" fill="#D4A574" />
         <circle cx="26" cy="22" r="1.2" fill="#D4A574" />
       </svg>
-      <span className="font-display text-2xl tracking-tight">
-        novaterra
+      <span className="flex flex-col items-start leading-none">
+        <span className="font-display text-2xl tracking-tight">novaterra</span>
+        <span className="text-[8.5px] tracking-[0.36em] uppercase mt-0.5 opacity-60">
+          Coffee &amp; Kitchen
+        </span>
       </span>
     </Link>
   );

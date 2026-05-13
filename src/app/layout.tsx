@@ -21,11 +21,11 @@ const sans = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://novaterra.cafe"),
   title: {
-    default: "Novaterra — A Coffee Sanctuary Beneath the Olive Tree · Tunis",
-    template: "%s · Novaterra"
+    default: "Novaterra Coffee & Kitchen — Nouvelle Médina, Tunis",
+    template: "%s · Novaterra Coffee & Kitchen"
   },
   description:
-    "Novaterra is an elegant coffee sanctuary in Nouvelle Médina, Tunis, built around a living olive tree. Slow coffee, Mediterranean brunch, and quiet luxury — all day, every day.",
+    "Novaterra Coffee & Kitchen — slow coffee, Mediterranean brunch, signature cocktails, family breakfast tables and chicha, served beneath a living olive tree in Nouvelle Médina, Tunis.",
   keywords: [
     "Novaterra",
     "coffee shop Tunis",

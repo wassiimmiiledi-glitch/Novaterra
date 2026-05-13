@@ -8,7 +8,7 @@ import { formatPrice } from "@/lib/utils";
 export type Featured = {
   id: string;
   name: string;
-  description: string;
+  description: string | null;
   price: number;
   category: string;
   image?: string | null;
@@ -69,9 +69,11 @@ export default function FeaturedMenu({ items }: { items: Featured[] }) {
               <div className="mt-6 flex items-start justify-between gap-6">
                 <div>
                   <h3 className="font-display text-2xl">{item.name}</h3>
-                  <p className="mt-2 text-cream-200/70 font-light leading-relaxed text-sm max-w-[40ch]">
-                    {item.description}
-                  </p>
+                  {item.description && (
+                    <p className="mt-2 text-cream-200/70 font-light leading-relaxed text-sm max-w-[40ch]">
+                      {item.description}
+                    </p>
+                  )}
                 </div>
                 <span className="font-display text-xl text-amber-warm shrink-0">
                   {formatPrice(item.price)}

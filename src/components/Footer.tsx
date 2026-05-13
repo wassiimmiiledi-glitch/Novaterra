@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import QRMenu from "./QRMenu";
-import { Instagram, Facebook, Mail, MapPin, Clock } from "lucide-react";
+import { Instagram, Facebook, Mail, MapPin, Clock, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -16,18 +16,28 @@ export default function Footer() {
           <div className="lg:col-span-7">
             <Logo variant="light" />
             <p className="mt-6 max-w-md text-cream-200/80 leading-relaxed font-light">
+              <span className="block text-[11px] tracking-[0.32em] uppercase text-amber-warm mb-3">
+                Coffee &amp; Kitchen · Nouvelle Médina, Tunis
+              </span>
               A coffee sanctuary built around a living olive tree —
               where slow mornings, Mediterranean light, and quiet luxury meet.
             </p>
             <div className="mt-8 flex items-center gap-3">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/novaterra_coffee"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-full border border-cream-100/15 flex items-center justify-center hover:bg-cream-100 hover:text-olive-900 transition-colors"
-                aria-label="Instagram"
+                aria-label="Instagram @novaterra_coffee"
               >
                 <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="tel:+21629811559"
+                className="w-10 h-10 rounded-full border border-cream-100/15 flex items-center justify-center hover:bg-cream-100 hover:text-olive-900 transition-colors"
+                aria-label="Call +216 29 811 559"
+              >
+                <Phone className="w-4 h-4" />
               </a>
               <a
                 href="https://facebook.com"
@@ -72,6 +82,10 @@ export default function Footer() {
                 <br />
                 Tunis, Tunisia
               </span>
+            </p>
+            <p className="mt-5 flex items-start gap-3 text-cream-200/85 font-light">
+              <Phone className="w-4 h-4 mt-1 shrink-0 text-amber-warm" />
+              <a href="tel:+21629811559" className="link-underline">+216 29 811 559</a>
             </p>
             <p className="mt-5 flex items-start gap-3 text-cream-200/85 font-light">
               <Clock className="w-4 h-4 mt-1 shrink-0 text-amber-warm" />

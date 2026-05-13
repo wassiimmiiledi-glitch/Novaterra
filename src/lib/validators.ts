@@ -12,7 +12,13 @@ export const reservationSchema = z.object({
 
 export const menuItemSchema = z.object({
   name: z.string().min(2).max(80),
-  description: z.string().min(2).max(400),
+  // Optional — many simple coffee/tea items have no description.
+  description: z
+    .string()
+    .max(400)
+    .optional()
+    .or(z.literal(""))
+    .nullable(),
   price: z.coerce.number().min(0),
   category: z.string().min(2).max(40),
   image: z.string().url().optional().or(z.literal("")).nullable(),

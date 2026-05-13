@@ -26,7 +26,9 @@ model Admin {
 model MenuItem {
   id          String   @id @default(cuid())
   name        String
-  description String
+  // Optional — many simple coffee/tea items have no description; cocktails &
+  // breakfast packages do. Storing nulls keeps the menu page typography clean.
+  description String?
   price       Float
   category    String
   image       String?

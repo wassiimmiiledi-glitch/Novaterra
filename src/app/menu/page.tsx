@@ -7,14 +7,16 @@ import { prisma } from "@/lib/prisma";
 export const metadata = {
   title: "Menu",
   description:
-    "The Novaterra menu — slow coffee, Mediterranean brunch, signature drinks and seasonal desserts."
+    "The full Novaterra Coffee & Kitchen menu — coffee, signature cocktails, brunch, crêpes, breakfast packages, desserts, and chicha. Served in Nouvelle Médina, Tunis."
 };
 
 export const revalidate = 30;
 
 export default async function MenuPage() {
+  // Ordering by `id` preserves the PDF's section + intra-section order
+  // (seed IDs are sequential per category: nv_c01..nv_c09, nv_i01..nv_i08, …).
   const items = await prisma.menuItem
-    .findMany({ where: { available: true }, orderBy: [{ category: "asc" }, { name: "asc" }] })
+    .findMany({ where: { available: true }, orderBy: { id: "asc" } })
     .catch(() => []);
 
   return (
@@ -22,8 +24,8 @@ export default async function MenuPage() {
       <Navbar />
       <PageHeader
         eyebrow="The menu"
-        title="Tasted slowly,<br/>made <em>by hand.</em>"
-        description="Single-origin coffee, Mediterranean brunch, and seasonal pastries — pulled from a small kitchen, served beneath the olive tree."
+        title="Coffee &amp; <em>Kitchen</em>"
+        description="Slow coffee, signature cocktails, Mediterranean brunch, family breakfast tables and chicha — every line poured, plated and served beneath the olive tree."
       />
       <MenuList items={items} />
       <Footer />
