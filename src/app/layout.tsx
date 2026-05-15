@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Providers from "@/components/Providers";
+import WhatsAppFab from "@/components/WhatsAppFab";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-cream-50 text-ink antialiased selection:bg-olive-600 selection:text-cream-50">
         <Providers>
           {children}
+          <WhatsAppFab />
           <Toaster
             position="bottom-center"
             toastOptions={{

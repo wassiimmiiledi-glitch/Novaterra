@@ -144,13 +144,26 @@ export default function MenuList({ items }: { items: Item[] }) {
 
   return (
     <section className="bg-cream-50 pb-32">
-      {/* ── Sticky scroll-spy nav ───────────────────────────────────── */}
-      <nav className="sticky top-[72px] md:top-[88px] z-30 bg-cream-50/85 backdrop-blur-xl border-y border-ink/[0.06]">
-        <div className="container-x py-3 md:py-4">
+      {/*
+        Sticky scroll-spy nav — pinned just below the (collapsed) navbar.
+        Notes for mobile:
+          • Fully opaque background — no backdrop-blur, which causes
+            "see-through" rendering glitches on iOS Safari and creates the
+            illusion that the menu items are leaking through the bar.
+          • Top offset matches the collapsed navbar height exactly so there's
+            no gap or jump when the navbar shrinks during scroll.
+          • will-change + translateZ(0) promote the nav to its own compositor
+            layer, killing the judder some Android browsers showed.
+          • A soft bottom shadow gives crisp separation from menu content.
+      */}
+      <nav
+        className="sticky top-[56px] md:top-[72px] z-30 bg-cream-50 border-b border-ink/[0.08] shadow-[0_8px_24px_-18px_rgba(31,36,21,0.22)] [transform:translateZ(0)] [will-change:transform]"
+      >
+        <div className="container-x py-2.5 md:py-3.5">
           <div
             ref={navRef}
             className="flex gap-1.5 md:gap-2 overflow-x-auto scrollbar-none -mx-2 px-2 snap-x snap-mandatory scroll-px-4"
-            style={{ scrollbarWidth: "none" }}
+            style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
           >
             {groupedCategories.flatMap(({ group, cats }, gi) => [
               gi > 0 && (
@@ -173,10 +186,9 @@ export default function MenuList({ items }: { items: Item[] }) {
                       e.preventDefault();
                       const el = sectionRefs.current[cat.key];
                       if (el) {
-                        const y =
-                          el.getBoundingClientRect().top +
-                          window.scrollY -
-                          (window.innerWidth < 768 ? 130 : 150);
+                        // Land sections below the (collapsed) navbar + sticky bar.
+                        const offset = window.innerWidth < 768 ? 116 : 144;
+                        const y = el.getBoundingClientRect().top + window.scrollY - offset;
                         window.scrollTo({ top: y, behavior: "smooth" });
                       }
                     }}
@@ -222,7 +234,8 @@ export default function MenuList({ items }: { items: Item[] }) {
                 ref={(el) => {
                   sectionRefs.current[cat.key] = el;
                 }}
-                className="scroll-mt-40"
+                // scroll-mt matches nav height (navbar 56 + sticky 50ish + breathing room)
+                className="scroll-mt-[124px] md:scroll-mt-[160px]"
               >
                 {cat.style === "feature" ? (
                   <FeatureSection cat={cat} items={list} />
