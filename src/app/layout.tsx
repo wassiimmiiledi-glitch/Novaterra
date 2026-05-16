@@ -22,36 +22,37 @@ const sans = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://novaterra.cafe"),
   title: {
-    default: "Novaterra Coffee & Kitchen — Nouvelle Médina, Tunis",
+    default: "Novaterra Coffee & Kitchen — Ben Arous, Tunisia",
     template: "%s · Novaterra Coffee & Kitchen"
   },
   description:
-    "Novaterra Coffee & Kitchen — slow coffee, Mediterranean brunch, signature cocktails, family breakfast tables and chicha, served beneath a living olive tree in Nouvelle Médina, Tunis.",
+    "Novaterra Coffee & Kitchen — slow coffee, Mediterranean brunch, signature cocktails, family breakfast tables and chicha, served beneath a living olive tree at P7R3+69F, Ben Arous.",
   keywords: [
     "Novaterra",
-    "coffee shop Tunis",
-    "café Tunis",
+    "coffee shop Ben Arous",
+    "café Ben Arous",
     "specialty coffee Tunisia",
-    "Nouvelle Médina",
-    "Tunis café",
+    "Ben Arous café",
+    "Tunisia café",
     "olive tree café",
     "Mediterranean brunch",
-    "luxury café Tunisia"
+    "luxury café Tunisia",
+    "P7R3+69F"
   ],
   openGraph: {
-    title: "Novaterra — A Coffee Sanctuary Beneath the Olive Tree",
+    title: "Novaterra Coffee & Kitchen — Ben Arous",
     description:
-      "Slow coffee, Mediterranean brunch, and quiet luxury beneath a living olive tree — in Nouvelle Médina, Tunis.",
+      "Slow coffee, Mediterranean brunch, and quiet luxury beneath a living olive tree — at P7R3+69F, Ben Arous, Tunisia.",
     type: "website",
     locale: "en_US",
-    siteName: "Novaterra",
+    siteName: "Novaterra Coffee & Kitchen",
     countryName: "Tunisia"
   },
   other: {
-    "geo.region": "TN-11",
-    "geo.placename": "Nouvelle Médina, Tunis",
-    "geo.position": "36.7985;10.1715",
-    ICBM: "36.7985, 10.1715"
+    "geo.region": "TN-13",
+    "geo.placename": "Ben Arous, Tunisia",
+    "geo.position": "36.7494;10.2295",
+    ICBM: "36.7494, 10.2295"
   },
   icons: { icon: "/favicon.ico" }
 };

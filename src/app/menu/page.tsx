@@ -7,7 +7,7 @@ import { prisma } from "@/lib/prisma";
 export const metadata = {
   title: "Menu",
   description:
-    "The full Novaterra Coffee & Kitchen menu — coffee, signature cocktails, brunch, crêpes, breakfast packages, desserts, and chicha. Served in Nouvelle Médina, Tunis."
+    "The full Novaterra Coffee & Kitchen menu — coffee, signature cocktails, brunch, crêpes, breakfast packages, desserts, and chicha. Served at P7R3+69F, Ben Arous, Tunisia."
 };
 
 export const revalidate = 30;

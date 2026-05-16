@@ -31,7 +31,7 @@ export default function ReservationsPage() {
                 <li className="flex gap-3"><span className="text-amber-warm">·</span>Tables are 90 minutes during peak service.</li>
                 <li className="flex gap-3"><span className="text-amber-warm">·</span>Walk-ins welcome — but reservations are loved.</li>
                 <li className="flex gap-3"><span className="text-amber-warm">·</span>Private events: write to <a href="mailto:events@novaterra.cafe" className="link-underline">events@novaterra.cafe</a></li>
-                <li className="flex gap-3"><span className="text-amber-warm">·</span>Questions? <a href="tel:+21629811559" className="link-underline">+216 29 811 559</a></li>
+                <li className="flex gap-3"><span className="text-amber-warm">·</span>Questions? <a href="tel:+21656783708" className="link-underline">+216 56 783 708</a></li>
               </ul>
               <div className="mt-12 p-6 border border-ink/10 rounded-sm bg-cream-100/60">
                 <p className="font-display text-xl text-olive-700">Hours</p>

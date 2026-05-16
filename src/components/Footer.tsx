@@ -17,14 +17,14 @@ export default function Footer() {
             <Logo variant="light" />
             <p className="mt-6 max-w-md text-cream-200/80 leading-relaxed font-light">
               <span className="block text-[11px] tracking-[0.32em] uppercase text-amber-warm mb-3">
-                Coffee &amp; Kitchen · Nouvelle Médina, Tunis
+                Coffee &amp; Kitchen · Ben Arous
               </span>
               A coffee sanctuary built around a living olive tree —
               where slow mornings, Mediterranean light, and quiet luxury meet.
             </p>
             <div className="mt-8 flex items-center gap-3">
               <a
-                href="https://instagram.com/novaterra_coffee"
+                href="https://www.instagram.com/novaterra_coffee?igsh=MTl4bTNtMjBkYWtpdA=="
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-full border border-cream-100/15 flex items-center justify-center hover:bg-cream-100 hover:text-olive-900 transition-colors"
@@ -33,9 +33,9 @@ export default function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="tel:+21629811559"
+                href="tel:+21656783708"
                 className="w-10 h-10 rounded-full border border-cream-100/15 flex items-center justify-center hover:bg-cream-100 hover:text-olive-900 transition-colors"
-                aria-label="Call +216 29 811 559"
+                aria-label="Call +216 56 783 708"
               >
                 <Phone className="w-4 h-4" />
               </a>
@@ -75,17 +75,22 @@ export default function Footer() {
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
             <p className="eyebrow !text-cream-200/60 mb-5">Visit</p>
-            <p className="flex items-start gap-3 text-cream-200/85 font-light">
+            <a
+              href="https://www.google.com/maps/place/P7R3%2B69F+Ben+Arous"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-start gap-3 text-cream-200/85 font-light hover:text-amber-warm transition-colors group"
+            >
               <MapPin className="w-4 h-4 mt-1 shrink-0 text-amber-warm" />
               <span>
-                Nouvelle Médina
+                Novaterra · <span className="tabular-nums">P7R3+69F</span>
                 <br />
-                Tunis, Tunisia
+                Ben Arous, Tunisia
               </span>
-            </p>
+            </a>
             <p className="mt-5 flex items-start gap-3 text-cream-200/85 font-light">
               <Phone className="w-4 h-4 mt-1 shrink-0 text-amber-warm" />
-              <a href="tel:+21629811559" className="link-underline">+216 29 811 559</a>
+              <a href="tel:+21656783708" className="link-underline">+216 56 783 708</a>
             </p>
             <p className="mt-5 flex items-start gap-3 text-cream-200/85 font-light">
               <Clock className="w-4 h-4 mt-1 shrink-0 text-amber-warm" />

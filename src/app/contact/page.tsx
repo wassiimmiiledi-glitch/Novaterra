@@ -7,7 +7,7 @@ import { Mail, MapPin, Phone, Clock, Instagram, Facebook } from "lucide-react";
 export const metadata = {
   title: "Contact",
   description:
-    "Find Novaterra in Nouvelle Médina, Tunis, Tunisia — directions, hours, and ways to reach us."
+    "Find Novaterra Coffee & Kitchen at P7R3+69F, Ben Arous, Tunisia — directions, hours, WhatsApp, and ways to reach us."
 };
 
 export default function ContactPage() {
@@ -23,8 +23,13 @@ export default function ContactPage() {
       <section className="bg-cream-50 pb-24">
         <div className="container-x grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5 space-y-10">
-            <Info icon={<MapPin />} label="Visit" lines={["Nouvelle Médina", "Tunis, Tunisia"]} />
-            <Info icon={<Phone />} label="Call / WhatsApp" lines={["+216 29 811 559"]} />
+            <Info
+              icon={<MapPin />}
+              label="Visit"
+              lines={["Novaterra · P7R3+69F", "Ben Arous, Tunisia"]}
+              href="https://www.google.com/maps/place/P7R3%2B69F+Ben+Arous"
+            />
+            <Info icon={<Phone />} label="Call / WhatsApp" lines={["+216 56 783 708"]} />
             <Info icon={<Mail />} label="Write" lines={["hello@novaterra.cafe", "events@novaterra.cafe"]} />
             <Info
               icon={<Clock />}
@@ -34,7 +39,7 @@ export default function ContactPage() {
             <div>
               <p className="eyebrow mb-4">Follow</p>
               <div className="flex gap-3">
-                <a href="https://instagram.com/novaterra_coffee" target="_blank" rel="noreferrer" className="w-11 h-11 rounded-full border border-ink/15 flex items-center justify-center hover:bg-olive-700 hover:text-cream-50 hover:border-olive-700 transition-colors" aria-label="Instagram @novaterra_coffee"><Instagram className="w-4 h-4" /></a>
+                <a href="https://www.instagram.com/novaterra_coffee?igsh=MTl4bTNtMjBkYWtpdA==" target="_blank" rel="noreferrer" className="w-11 h-11 rounded-full border border-ink/15 flex items-center justify-center hover:bg-olive-700 hover:text-cream-50 hover:border-olive-700 transition-colors" aria-label="Instagram @novaterra_coffee"><Instagram className="w-4 h-4" /></a>
                 <a href="https://facebook.com" className="w-11 h-11 rounded-full border border-ink/15 flex items-center justify-center hover:bg-olive-700 hover:text-cream-50 hover:border-olive-700 transition-colors" aria-label="Facebook"><Facebook className="w-4 h-4" /></a>
               </div>
             </div>
@@ -43,18 +48,20 @@ export default function ContactPage() {
           <div className="md:col-span-7">
             <div className="aspect-[4/3] w-full rounded-sm overflow-hidden shadow-soft border border-ink/10">
               <iframe
-                title="Novaterra · Nouvelle Médina, Tunis"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=10.1550%2C36.7850%2C10.1900%2C36.8120&layer=mapnik&marker=36.7985%2C10.1715"
-                className="w-full h-full"
+                title="Novaterra · P7R3+69F · Ben Arous"
+                src="https://maps.google.com/maps?q=NOVATERRA%20P7R3%2B69F%20Ben%20Arous&t=m&z=16&output=embed&iwloc=near"
+                className="w-full h-full border-0"
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
               />
             </div>
             <p className="mt-4 text-[11px] tracking-[0.28em] uppercase text-ink/50 flex flex-wrap items-center gap-x-2 gap-y-1">
-              <span>Nouvelle Médina · Tunis, Tunisia</span>
+              <span>Novaterra · P7R3+69F · Ben Arous, Tunisia</span>
               <span aria-hidden>·</span>
               <a
                 className="link-underline hover:text-olive-700"
-                href="https://www.google.com/maps/search/?api=1&query=Nouvelle+M%C3%A9dina%2C+Tunis%2C+Tunisia"
+                href="https://www.google.com/maps/place/P7R3%2B69F+Ben+Arous"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -97,15 +104,17 @@ export default function ContactPage() {
 function Info({
   icon,
   label,
-  lines
+  lines,
+  href
 }: {
   icon: React.ReactNode;
   label: string;
   lines: string[];
+  href?: string;
 }) {
-  return (
-    <div className="flex gap-5 items-start">
-      <div className="w-11 h-11 rounded-full bg-olive-700 text-cream-50 flex items-center justify-center shrink-0 [&>svg]:w-4 [&>svg]:h-4">
+  const inner = (
+    <>
+      <div className="w-11 h-11 rounded-full bg-olive-700 text-cream-50 flex items-center justify-center shrink-0 [&>svg]:w-4 [&>svg]:h-4 transition-colors group-hover:bg-olive-900">
         {icon}
       </div>
       <div>
@@ -114,6 +123,18 @@ function Info({
           <p key={l} className="text-ink/80 font-light">{l}</p>
         ))}
       </div>
-    </div>
+    </>
+  );
+  return href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="group flex gap-5 items-start hover:text-olive-700 transition-colors"
+    >
+      {inner}
+    </a>
+  ) : (
+    <div className="flex gap-5 items-start">{inner}</div>
   );
 }

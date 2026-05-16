@@ -67,7 +67,7 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.9 }}
             className="eyebrow !text-amber-warm"
           >
-            Beneath the olive tree · Nouvelle Médina, Tunis
+            Beneath the olive tree · Ben Arous, Tunisia
           </motion.p>
 
           {/*

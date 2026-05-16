@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
  *  • Deep links via wa.me which Android, iOS, web and desktop all honour.
  */
 
-const PHONE = "21629811559"; // Tunisia +216 29 811 559 — country code + number, no plus.
+const PHONE = "21656783708"; // Tunisia +216 56 783 708 — country code + number, no plus.
 const GREETING =
   "Bonjour Novaterra ☕  — j'aimerais avoir des informations / réserver une table.";
 

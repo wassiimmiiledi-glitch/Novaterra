@@ -37,7 +37,7 @@ export default function AboutPage() {
             <Block eyebrow="Chapter I" title="A single tree, transplanted">
               In late 2023 we found an olive tree, more than a century old, on a small hill outside
               Sidi Bou Saïd. The grove had been sold; the tree was scheduled to be removed. We
-              brought it with us instead — into the heart of Nouvelle Médina, Tunis. Architecture
+              brought it with us instead — into the heart of Ben Arous. Architecture
               came after. Walls, ceilings, beams — every line of the building was drawn to make
               room for it.
             </Block>
